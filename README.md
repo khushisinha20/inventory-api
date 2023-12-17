@@ -16,7 +16,7 @@ These instructions will guide you through setting up and running the Inventory A
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/inventory-api.git
+   git clone https://github.com/khushisinha20/inventory-api.git
 
 2. Change into the project directory:
 
@@ -47,3 +47,5 @@ These instructions will guide you through setting up and running the Inventory A
 
    ```bash
    go run cmd/main.go
+
+The API should now be running at http://localhost:9000.

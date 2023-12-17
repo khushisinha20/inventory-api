@@ -77,6 +77,25 @@ func main() {
 		return item, nil
 	})
 
+	// Update an inventory item by ID
+	app.PUT("/updateInventory/{id}", func(ctx *gofr.Context) (interface{}, error) {
+		var requestPayload RequestPayload
+		if err := json.NewDecoder(ctx.Request().Body).Decode(&requestPayload); err != nil {
+			return nil, err
+		}
+
+		// Get the inventory item ID from the path parameters
+		itemID := ctx.Param("id")
+
+		// Update data in the 'inventory' table
+		_, err := ctx.DB().ExecContext(ctx, "UPDATE inventory SET name = ?, quantity = ? WHERE id = ?", requestPayload.Name, requestPayload.Quantity, itemID)
+		if err != nil {
+			return nil, err
+		}
+
+		return "Inventory item updated successfully", nil
+	})
+
 
 	app.Start()
 }

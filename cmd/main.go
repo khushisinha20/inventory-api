@@ -61,6 +61,22 @@ func main() {
 		return inventoryItems, nil
 	})
 
+	// Read a specific inventory item by ID
+	app.GET("/getInventory/{id}", func(ctx *gofr.Context) (interface{}, error) {
+		// Extract inventory item ID from the URL parameters
+		id := ctx.PathParam("id")
+
+		// Query the database to get the specific inventory item
+		row := ctx.DB().QueryRowContext(ctx, "SELECT * FROM inventory WHERE id=?", id)
+
+		var item InventoryItem
+		if err := row.Scan(&item.ID, &item.Name, &item.Quantity); err != nil {
+			return nil, err
+		}
+
+		return item, nil
+	})
+
 
 	app.Start()
 }

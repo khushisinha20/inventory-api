@@ -49,3 +49,26 @@ These instructions will guide you through setting up and running the Inventory A
    go run cmd/main.go
 
 The API should now be running at http://localhost:9000.
+
+### API Endpoints Testing
+
+1. Add Inventory
+   ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/c27f84a5-aa5d-4286-b0a8-ea3375608711)
+
+2. Get All Inventories
+   ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/d4e57f59-d5f1-4fd9-96f7-a8bfd88e0588)
+
+3. Get Inventory by ID
+   ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/17ca7f2a-3e1e-47b8-927c-bcbe908a57f9)
+
+4. Update Inventory
+   ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/1392d877-694f-49af-966c-f01b8e3c8df3)
+
+5. Delete Inventory
+   ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/cda28074-c91e-4d8f-a936-f21e1a37f486)
+
+   ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/8622c175-5077-4e89-af4f-0d1dd635a5a3)
+
+
+
+

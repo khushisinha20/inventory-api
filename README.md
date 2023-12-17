@@ -69,6 +69,6 @@ The API should now be running at http://localhost:9000.
 
    ![image](https://github.com/khushisinha20/inventory-api/assets/79047990/8622c175-5077-4e89-af4f-0d1dd635a5a3)
 
-
-
+### Sequence Diagram
+![image](https://github.com/khushisinha20/inventory-api/assets/79047990/22014389-1082-4567-b277-f6e572c4f3ff)
 

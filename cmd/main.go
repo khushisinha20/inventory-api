@@ -96,6 +96,19 @@ func main() {
 		return "Inventory item updated successfully", nil
 	})
 
+	// Delete an inventory item by ID
+	app.DELETE("/deleteInventory/{id}", func(ctx *gofr.Context) (interface{}, error) {
+		// Extract inventory item ID from the URL parameters
+		id := ctx.PathParam("id")
+
+		// Execute the DELETE query
+		_, err := ctx.DB().ExecContext(ctx, "DELETE FROM inventory WHERE id=?", id)
+		if err != nil {
+			return nil, err
+		}
+
+		return "Inventory item deleted successfully", nil
+	})
 
 	app.Start()
 }

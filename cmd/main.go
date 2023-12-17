@@ -40,5 +40,27 @@ func main() {
 		return InventoryItem{ID: int(newID), Name: requestPayload.Name, Quantity: requestPayload.Quantity}, nil
 	})
 
+	// Read all inventory items
+	app.GET("/allInventory", func(ctx *gofr.Context) (interface{}, error) {
+		var inventoryItems []InventoryItem
+
+		rows, err := ctx.DB().QueryContext(ctx, "SELECT * FROM inventory")
+		if err != nil {
+			return nil, err
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			var item InventoryItem
+			if err := rows.Scan(&item.ID, &item.Name, &item.Quantity); err != nil {
+				return nil, err
+			}
+			inventoryItems = append(inventoryItems, item)
+		}
+
+		return inventoryItems, nil
+	})
+
+
 	app.Start()
 }
